@@ -1,4 +1,5 @@
 {
   "port": 5000,
+  "jwtSecret": "mern",
   "mongoUri": "mongodb+srv://root:root123@cluster0.dbbfn.mongodb.net/mern-stack-course?retryWrites=true&w=majority"
 }
