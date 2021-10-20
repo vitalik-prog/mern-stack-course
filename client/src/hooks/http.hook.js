@@ -1,8 +1,10 @@
-import {useCallback, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
+import {useAuth} from "./auth.hook";
 
 export const useHttp = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const {logout} = useAuth()
   const request = useCallback(async (url, method = 'GET', body = null, headers = {}) => {
     setLoading(true)
     try {
@@ -28,6 +30,12 @@ export const useHttp = () => {
   const clearError = useCallback(() => {
     setError(null)
   }, [])
+
+  useEffect(() => {
+    if (error === 'Unauthorized') {
+      logout()
+    }
+  }, [error, logout])
 
   return { loading, request, error, clearError }
 }
