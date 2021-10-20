@@ -1,5 +1,13 @@
 @import "~materialize-css/dist/css/materialize.min.css";
 
+html {
+    min-height: 100vh;
+}
+
+body {
+    height: 100%;
+}
+
 input.yellow-input {
     border-bottom: 1px solid #fff !important;
     box-shadow: 0 1px 0 0 #ffffff !important;
